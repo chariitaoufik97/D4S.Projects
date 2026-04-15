@@ -1,4 +1,4 @@
-﻿using D4S.Project.Animali.Animali;
+﻿using D4S.Project.Animali.Animals;
 
 namespace D4S.Project.Animali
 

@@ -1,6 +1,6 @@
-﻿using D4S.Project.Animali.Interfacce;
+﻿using D4S.Project.Animali.Interfaces;
 
-namespace D4S.Project.Animali.Animali
+namespace D4S.Project.Animali.Animals
 {
     public class Falco : Animale, IUccello
     {

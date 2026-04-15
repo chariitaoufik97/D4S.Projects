@@ -1,4 +1,4 @@
-﻿namespace D4S.Project.Animali.Animali
+﻿namespace D4S.Project.Animali.Animals
 {
     public abstract class Animale
     {
