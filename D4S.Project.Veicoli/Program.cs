@@ -10,7 +10,8 @@ namespace D4S.Project.Veicoli
         {
             List<Veicolo> veicoli = new()
             {
-                new Auto("BMW", "M4", 0)
+                new Auto("BMW", "M4", 0),
+
             };
 
             foreach (Veicolo veicolo in veicoli)
@@ -27,6 +28,7 @@ namespace D4S.Project.Veicoli
                 veicolo.Frenata();
                 veicolo.Spegnimento();
             }
+
         }
 
         #endregion

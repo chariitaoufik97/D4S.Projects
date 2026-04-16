@@ -29,7 +29,8 @@ namespace D4S.Project.Veicoli.Vehicles
 
         public virtual void MostraInfo()
         {
-            Console.WriteLine($"Marca: {Marca}, \n|Modello: {Modello}, \n|Velocità: {Velocita} Km/h");
+            Console.WriteLine($"\n|Marca: {Marca}, \n|Modello: {Modello}, \n|Velocità: {Velocita} Km/h");
+            Console.WriteLine("");
         }
 
         public abstract void Accensione();
@@ -40,10 +41,12 @@ namespace D4S.Project.Veicoli.Vehicles
             {
                 Velocita += 5;
                 Console.WriteLine($"Partenza in corso... Velocità: {Velocita} Km/h");
+                Console.WriteLine("");
             }
             else
             {
                 Console.WriteLine("Accendi prima il veicolo.");
+                Console.WriteLine("");
             }
         }
 
@@ -54,10 +57,12 @@ namespace D4S.Project.Veicoli.Vehicles
                 Console.WriteLine("Accelerazione in corso...");
                 Velocita += 15;
                 Console.WriteLine($"Velocità: {Velocita} Km/h");
+                Console.WriteLine("");
             }
             else
             {
                 Console.WriteLine("Accendi prima il veicolo.");
+                Console.WriteLine("");
             }
         }
 
@@ -74,10 +79,12 @@ namespace D4S.Project.Veicoli.Vehicles
                 }
 
                 Console.WriteLine($"Velocità: {Velocita} Km/h");
+                Console.WriteLine("");
             }
             else
             {
                 Console.WriteLine("Il veicolo è già fermo.");
+                Console.WriteLine("");
             }
         }
 
@@ -87,10 +94,12 @@ namespace D4S.Project.Veicoli.Vehicles
             {
                 Accesa = false;
                 Console.WriteLine("Spegnimento in corso...");
+                Console.WriteLine("");
             }
             else
             {
                 Console.WriteLine("Rallenta fino a fermarti prima di spegnere il veicolo.");
+                Console.WriteLine("");
             }
         }
 

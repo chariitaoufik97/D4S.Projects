@@ -27,6 +27,7 @@ namespace D4S.Project.Veicoli.Vehicles
             Console.WriteLine("Accensione auto in corso...");
             Velocita = 1;
             Console.WriteLine($"Velocità iniziale: {Velocita} Km/h");
+            Console.WriteLine("");
         }
 
         public override void Partenza()
@@ -58,7 +59,6 @@ namespace D4S.Project.Veicoli.Vehicles
             if (Accesa)
             {
                 Console.WriteLine("Marcia inserita.");
-                Velocita += 5;
                 Console.WriteLine($"Velocità: {Velocita} Km/h");
             }
             else
