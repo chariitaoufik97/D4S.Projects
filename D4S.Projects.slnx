@@ -1,4 +1,5 @@
 <Solution>
   <Project Path="D4S.Project.Animali/D4S.Project.Animali.csproj" />
+  <Project Path="D4S.Project.GaraAuto/D4S.Project.GaraAuto.csproj" Id="693ee79f-6770-4bae-a3af-0c706ccdda02" />
   <Project Path="D4S.Project.Veicoli/D4S.Project.Veicoli.csproj" Id="9c3efdea-7102-4c51-92a1-d65a1057e5c4" />
 </Solution>

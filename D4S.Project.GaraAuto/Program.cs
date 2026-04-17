@@ -1,10 +1,30 @@
-﻿namespace D4S.Project.GaraAuto
+﻿using D4S.Project.GaraAuto.Classi;
+
+namespace D4S.Project.GaraAuto
 {
-    internal class Program
+    public class Program
     {
+        #region Main
+
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello, World!");
+            List<Auto> veicoli = new()
+            {
+                new Auto("Audi", "RS6 Avant", 250, 3.6),
+                new Auto("Audi", "RS6 Avant Performance", 280, 3.4),
+                new Auto("BMW", "M4 Coupé", 250, 4.2),
+                new Auto("BMW", "M4 Competition xDrive", 250, 3.5),
+            };
+
+            Simulatore simulatore = new Simulatore();
+
+            foreach (Auto veicolo in veicoli)
+            {
+                veicolo.MostraInfo();
+                simulatore.Qualifica(veicolo);
+            }
         }
+
+        #endregion
     }
 }
