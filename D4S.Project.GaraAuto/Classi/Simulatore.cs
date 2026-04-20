@@ -51,7 +51,7 @@
 
                 // Stampo il checkpoint in giallo
                 Console.ForegroundColor = ConsoleColor.Yellow;
-                Console.WriteLine($"Checkpoint {distanzaCheckpoint / 1000} km | Tempo totale: {tempoTotale:F2}s | Tempo parziale: {tempoParziale:F2}s");
+                Console.WriteLine($"Pilota: {auto.Pilota} |Checkpoint {distanzaCheckpoint / 1000} km | Tempo totale: {tempoTotale:F2}s | Tempo parziale: {tempoParziale:F2}s");
                 Console.ResetColor();
             }
 
