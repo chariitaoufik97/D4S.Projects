@@ -6,7 +6,11 @@ namespace D4S.Project.GaraAuto.Classi
     {
         private readonly int[] checkpoints = { 1000, 2000, 3000, 4000, 5000 };
 
-        public async Task Qualifica(Auto auto)
+        public async Task Qualifica(
+            Auto auto,
+            int numeroAutoTotali,
+            int[] arriviPerCheckpoint,
+            object lockConsole)
         {
             // Calcolo l'accelerazione media partendo dallo 0-100
             // 100 km/h = 27.78 m/s
@@ -25,8 +29,10 @@ namespace D4S.Project.GaraAuto.Classi
             double tempoPrecedente = 0;
 
             // Scorro tutti i checkpoint: 1000, 2000, 3000, 4000, 5000 metri
-            foreach (int distanzaCheckpoint in checkpoints)
+            for (int i = 0; i < checkpoints.Length; i++)
             {
+                int distanzaCheckpoint = checkpoints[i];
+
                 // Tempo totale dalla partenza fino al checkpoint corrente
                 double tempoTotale;
 
@@ -51,19 +57,25 @@ namespace D4S.Project.GaraAuto.Classi
                 // Salvo il tempo totale corrente per usarlo al giro successivo
                 tempoPrecedente = tempoTotale;
 
-                // Stampo il checkpoint in giallo
-                Console.ForegroundColor = ConsoleColor.Yellow;
-                Console.WriteLine($"{auto.Marca} {auto.Modello} | Checkpoint {distanzaCheckpoint / 1000} km | Tempo totale: {tempoTotale}s | Tempo parziale: {tempoParziale}s");
-                Console.ResetColor();
-
-                // Simulo un breve ritardo tra i checkpoint
                 await Task.Delay((int)tempoParziale * 1000);
-            }
 
-            // Stampo il tempo finale in rosso
-            Console.ForegroundColor = ConsoleColor.Red;
-            Console.WriteLine($"{auto.Marca} {auto.Modello} Tempo finale: {tempoPrecedente:F2}s");
-            Console.ResetColor();
+                lock (lockConsole)
+                {
+                    Console.ForegroundColor = ConsoleColor.Yellow;
+                    Console.WriteLine(
+                        $"{auto.Pilota} | {auto.Marca} {auto.Modello} | Checkpoint {distanzaCheckpoint / 1000} km | Tempo totale: {tempoTotale:F2}s | Tempo parziale: {tempoParziale:F2}s");
+                    Console.ResetColor();
+
+                    arriviPerCheckpoint[i]++;
+
+                    if (arriviPerCheckpoint[i] == numeroAutoTotali && i < checkpoints.Length - 1)
+                    {
+                        Console.ForegroundColor = ConsoleColor.Blue;
+                        Console.WriteLine($"\n===> CHECKPOINT {i + 2} <===");
+                        Console.ResetColor();
+                    }
+                }
+            }
         }
     }
 }

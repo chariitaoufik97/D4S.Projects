@@ -11,24 +11,40 @@ namespace D4S.Project.GaraAuto
         {
             List<Auto> veicoli = new()
             {
-                new Auto("Luca", "Ferrari", "SF90 Stradale", 340, 2.5),
-                new Auto("Matteo", "Lamborghini", "Aventador SVJ", 350, 2.8),
-                new Auto("Tofy", "McLaren", "720S", 341, 2.9),
-                new Auto("Giovanni", "Porsche", "911 GT3 RS", 296, 3.2),
-
+                new Auto("Pippo", "Audi", "RS6 Avant", 250, 3.6),
+                new Auto("Pierino", "Audi", "RS6 Avant Performance", 280, 3.4),
+                new Auto("Matteo", "BMW", "M4 Coupé", 250, 4.2),
+                new Auto("Tofy", "BMW", "M4 Competition xDrive", 250, 3.5),
             };
-
 
             Simulatore simulatore = new Simulatore();
 
+            object lockConsole = new object();
+            int[] arriviPerCheckpoint = new int[5];
+
+            Console.WriteLine("=== GRIGLIA DI PARTENZA ===");
+
             foreach (Auto veicolo in veicoli)
             {
-
-
-                //veicolo.MostraInfo()
-                simulatore.Qualifica(veicolo);
-                Console.WriteLine(new string('-', 70));
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.WriteLine(
+                    $"{veicolo.Pilota} | {veicolo.Marca} {veicolo.Modello} | VelMax: {veicolo.VelocitaMax} km/h | 0-100: {veicolo.ZeroCento:F1}s");
+                Console.ResetColor();
             }
+
+            Console.ForegroundColor = ConsoleColor.Blue;
+            Console.WriteLine("\n===> CHECKPOINT 1 <===");
+            Console.ResetColor();
+
+            List<Task> gare = new();
+
+            foreach (Auto veicolo in veicoli)
+            {
+                gare.Add(simulatore.Qualifica(veicolo, veicoli.Count, arriviPerCheckpoint, lockConsole));
+            }
+
+            await Task.WhenAll(gare);
+
             Console.ReadKey();
         }
 
