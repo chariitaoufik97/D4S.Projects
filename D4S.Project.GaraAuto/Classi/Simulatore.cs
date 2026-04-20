@@ -1,10 +1,12 @@
-﻿namespace D4S.Project.GaraAuto.Classi
+﻿using System.Threading.Tasks;
+
+namespace D4S.Project.GaraAuto.Classi
 {
     public class Simulatore
     {
         private readonly int[] checkpoints = { 1000, 2000, 3000, 4000, 5000 };
 
-        public void Qualifica(Auto auto)
+        public async Task Qualifica(Auto auto)
         {
             // Calcolo l'accelerazione media partendo dallo 0-100
             // 100 km/h = 27.78 m/s
@@ -51,8 +53,11 @@
 
                 // Stampo il checkpoint in giallo
                 Console.ForegroundColor = ConsoleColor.Yellow;
-                Console.WriteLine($"Pilota: {auto.Pilota} |Checkpoint {distanzaCheckpoint / 1000} km | Tempo totale: {tempoTotale:F2}s | Tempo parziale: {tempoParziale:F2}s");
+                Console.WriteLine($"{auto.Marca} {auto.Modello} | Checkpoint {distanzaCheckpoint / 1000} km | Tempo totale: {tempoTotale:F2}s | Tempo parziale: {tempoParziale:F2}s");
                 Console.ResetColor();
+
+                // Simulo un breve ritardo tra i checkpoint
+                await Task.Delay(500);
             }
 
             // Stampo il tempo finale in rosso

@@ -1,4 +1,5 @@
-﻿using D4S.Project.GaraAuto.Classi;
+﻿using System.Threading.Tasks;
+using D4S.Project.GaraAuto.Classi;
 
 namespace D4S.Project.GaraAuto
 {
@@ -6,7 +7,7 @@ namespace D4S.Project.GaraAuto
     {
         #region Main
 
-        static void Main(string[] args)
+        static async Task Main(string[] args)
         {
             List<Auto> veicoli = new()
             {
@@ -21,7 +22,8 @@ namespace D4S.Project.GaraAuto
             foreach (Auto veicolo in veicoli)
             {
                 veicolo.MostraInfo();
-                simulatore.Qualifica(veicolo);
+                await simulatore.Qualifica(veicolo);
+                Console.WriteLine(new string('-', 70));
             }
         }
 
