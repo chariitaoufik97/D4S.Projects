@@ -53,16 +53,16 @@ namespace D4S.Project.GaraAuto.Classi
 
                 // Stampo il checkpoint in giallo
                 Console.ForegroundColor = ConsoleColor.Yellow;
-                Console.WriteLine($"{auto.Marca} {auto.Modello} | Checkpoint {distanzaCheckpoint / 1000} km | Tempo totale: {tempoTotale:F2}s | Tempo parziale: {tempoParziale:F2}s");
+                Console.WriteLine($"{auto.Marca} {auto.Modello} | Checkpoint {distanzaCheckpoint / 1000} km | Tempo totale: {tempoTotale}s | Tempo parziale: {tempoParziale}s");
                 Console.ResetColor();
 
                 // Simulo un breve ritardo tra i checkpoint
-                await Task.Delay(500);
+                await Task.Delay((int)tempoParziale * 1000);
             }
 
             // Stampo il tempo finale in rosso
             Console.ForegroundColor = ConsoleColor.Red;
-            Console.WriteLine($"\nTempo finale: {tempoPrecedente:F2}s");
+            Console.WriteLine($"{auto.Marca} {auto.Modello} Tempo finale: {tempoPrecedente:F2}s");
             Console.ResetColor();
         }
     }
