@@ -1,6 +1,5 @@
-﻿using System.Threading.Tasks;
-using D4S.Project.GaraAuto.Classi;
-
+﻿using D4S.Project.GaraAuto.Classi;
+ //object lockConsole = new object();
 namespace D4S.Project.GaraAuto
 {
     public class Program
@@ -11,15 +10,15 @@ namespace D4S.Project.GaraAuto
         {
             List<Auto> veicoli = new()
             {
-                new Auto("Pippo", "Audi", "RS6 Avant", 250, 3.6),
-                new Auto("Pierino", "Audi", "RS6 Avant Performance", 280, 3.4),
-                new Auto("Matteo", "BMW", "M4 Coupé", 250, 4.2),
-                new Auto("Tofy", "BMW", "M4 Competition xDrive", 250, 3.5),
+                new Auto("Luca", "Ferrari", "SF90 Stradale", 340, 2.5),
+                new Auto("Marco", "Lamborghini", "Aventador SVJ", 350, 2.8),
+                new Auto("Andrea", "McLaren", "720S", 341, 2.8),
+                new Auto("Giovanni", "Porsche", "911 GT3 RS", 296, 3.2),
             };
 
             Simulatore simulatore = new Simulatore();
 
-            object lockConsole = new object();
+            //object lockConsole = new object();
             int[] arriviPerCheckpoint = new int[5];
 
             Console.WriteLine("=== GRIGLIA DI PARTENZA ===");
@@ -40,7 +39,7 @@ namespace D4S.Project.GaraAuto
 
             foreach (Auto veicolo in veicoli)
             {
-                gare.Add(simulatore.Qualifica(veicolo, veicoli.Count, arriviPerCheckpoint, lockConsole));
+                gare.Add(simulatore.Qualifica(veicolo, veicoli.Count, arriviPerCheckpoint/*, lockConsole*/));
             }
 
             await Task.WhenAll(gare);

@@ -1,6 +1,4 @@
-﻿using System.Threading.Tasks;
-
-namespace D4S.Project.GaraAuto.Classi
+﻿namespace D4S.Project.GaraAuto.Classi
 {
     public class Simulatore
     {
@@ -9,8 +7,8 @@ namespace D4S.Project.GaraAuto.Classi
         public async Task Qualifica(
             Auto auto,
             int numeroAutoTotali,
-            int[] arriviPerCheckpoint,
-            object lockConsole)
+            int[] arriviPerCheckpoint)
+            //object lockConsole)
         {
             // Calcolo l'accelerazione media partendo dallo 0-100
             // 100 km/h = 27.78 m/s
@@ -59,7 +57,7 @@ namespace D4S.Project.GaraAuto.Classi
 
                 await Task.Delay((int)tempoParziale * 1000);
 
-                lock (lockConsole)
+                //lock (lockConsole)
                 {
                     Console.ForegroundColor = ConsoleColor.Yellow;
                     Console.WriteLine(
