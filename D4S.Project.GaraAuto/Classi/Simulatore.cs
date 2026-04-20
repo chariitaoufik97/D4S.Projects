@@ -58,8 +58,8 @@
                 await Task.Delay((int)tempoParziale * 1000);
 
                 //lock (lockConsole)
-                {
-                    Console.ForegroundColor = ConsoleColor.Yellow;
+                //{
+                    Console.ForegroundColor = ConsoleColor.DarkYellow;
                     Console.WriteLine(
                         $"{auto.Pilota} | {auto.Marca} {auto.Modello} | Checkpoint {distanzaCheckpoint / 1000} km | Tempo totale: {tempoTotale:F2}s | Tempo parziale: {tempoParziale:F2}s");
                     Console.ResetColor();
@@ -68,11 +68,11 @@
 
                     if (arriviPerCheckpoint[i] == numeroAutoTotali && i < checkpoints.Length - 1)
                     {
-                        Console.ForegroundColor = ConsoleColor.Blue;
+                        Console.ForegroundColor = ConsoleColor.DarkMagenta;
                         Console.WriteLine($"\n===> CHECKPOINT {i + 2} <===");
                         Console.ResetColor();
                     }
-                }
+                //}
             }
         }
     }

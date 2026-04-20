@@ -12,7 +12,7 @@ namespace D4S.Project.GaraAuto
             {
                 new Auto("Luca", "Ferrari", "SF90 Stradale", 340, 2.5),
                 new Auto("Marco", "Lamborghini", "Aventador SVJ", 350, 2.8),
-                new Auto("Andrea", "McLaren", "720S", 341, 2.8),
+                new Auto("Andrea", "McLaren", "720S", 350, 2.9),
                 new Auto("Giovanni", "Porsche", "911 GT3 RS", 296, 3.2),
             };
 
@@ -25,13 +25,13 @@ namespace D4S.Project.GaraAuto
 
             foreach (Auto veicolo in veicoli)
             {
-                Console.ForegroundColor = ConsoleColor.Green;
+                Console.ForegroundColor = ConsoleColor.Cyan;
                 Console.WriteLine(
                     $"{veicolo.Pilota} | {veicolo.Marca} {veicolo.Modello} | VelMax: {veicolo.VelocitaMax} km/h | 0-100: {veicolo.ZeroCento:F1}s");
                 Console.ResetColor();
             }
 
-            Console.ForegroundColor = ConsoleColor.Blue;
+            Console.ForegroundColor = ConsoleColor.DarkMagenta;
             Console.WriteLine("\n===> CHECKPOINT 1 <===");
             Console.ResetColor();
 
